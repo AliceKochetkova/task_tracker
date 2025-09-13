@@ -98,7 +98,7 @@ class SymfonyBundle
         $parts = explode('\\', $class);
         $class = $parts[\count($parts) - 1];
         if (!$isPsr4) {
-            $classPath .= str_replace('\\', '', implode('/', \array_slice($parts, 0, -1))) . 'SymfonyBundle.php/';
+            $classPath .= str_replace('\\', '', implode('/', \array_slice($parts, 0, -1))).'/';
         }
         $classPath .= str_replace('\\', '/', $class).'.php';
 

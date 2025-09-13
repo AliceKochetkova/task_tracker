@@ -65,7 +65,7 @@ class CopyFromRecipeConfigurator extends AbstractConfigurator
     {
         foreach ($config as $key => $target) {
             if (str_starts_with($path, $key)) {
-                return $this->options->expandTargetDir($target) . substr($path, \strlen($key));
+                return $this->options->expandTargetDir($target).substr($path, \strlen($key));
             }
         }
 

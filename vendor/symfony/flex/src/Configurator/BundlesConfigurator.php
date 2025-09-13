@@ -140,7 +140,7 @@ class BundlesConfigurator extends AbstractConfigurator
 
     private function getConfFile(): string
     {
-        return $this->options->get('root-dir') . 'BundlesConfigurator.php/' .$this->getLocalConfFile();
+        return $this->options->get('root-dir').'/'.$this->getLocalConfFile();
     }
 
     private function getLocalConfFile(): string

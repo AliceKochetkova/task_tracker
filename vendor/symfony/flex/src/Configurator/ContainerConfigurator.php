@@ -26,14 +26,14 @@ class ContainerConfigurator extends AbstractConfigurator
         $contents = $this->configureParameters($parameters);
 
         if (null !== $contents) {
-            file_put_contents($this->options->get('root-dir') . 'ContainerConfigurator.php/' .$this->getServicesPath(), $contents);
+            file_put_contents($this->options->get('root-dir').'/'.$this->getServicesPath(), $contents);
         }
     }
 
     public function unconfigure(Recipe $recipe, $parameters, Lock $lock)
     {
         $this->write('Unsetting parameters');
-        $target = $this->options->get('root-dir') . 'ContainerConfigurator.php/' .$this->getServicesPath();
+        $target = $this->options->get('root-dir').'/'.$this->getServicesPath();
         $lines = $this->removeParametersFromLines(file($target), $parameters);
         file_put_contents($target, implode('', $lines));
     }
@@ -64,7 +64,7 @@ class ContainerConfigurator extends AbstractConfigurator
 
     private function configureParameters(array $parameters, bool $update = false): string
     {
-        $target = $this->options->get('root-dir') . 'ContainerConfigurator.php/' .$this->getServicesPath();
+        $target = $this->options->get('root-dir').'/'.$this->getServicesPath();
         $endAt = 0;
         $isParameters = false;
         $lines = [];
@@ -86,7 +86,7 @@ class ContainerConfigurator extends AbstractConfigurator
                 $matches = [];
                 if (preg_match(\sprintf('/^\s+%s\:/', preg_quote($key, '/')), $line, $matches)) {
                     if ($update) {
-                        $lines[$i] = substr($line, 0, \strlen($matches[0])) . ' ContainerConfigurator.php' .str_replace("'", "''", $value)."\n";
+                        $lines[$i] = substr($line, 0, \strlen($matches[0])).' '.str_replace("'", "''", $value)."\n";
                     }
 
                     unset($parameters[$key]);
@@ -151,7 +151,7 @@ class ContainerConfigurator extends AbstractConfigurator
                 $line .= \sprintf("%s: '%s'\n", $key, str_replace("'", "''", $value));
                 continue;
             }
-            $line .= ContainerConfigurator . php\sprintf("%s:\n", $key) . $this->dumpYaml($level + 1, $value);
+            $line .= \sprintf("%s:\n", $key).$this->dumpYaml($level + 1, $value);
         }
 
         return $line;

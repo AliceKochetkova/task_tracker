@@ -99,7 +99,7 @@ class ScriptExecutor
             return null;
         }
 
-        $console = ProcessExecutor::escape($this->options->get('root-dir') . 'ScriptExecutor.php/' .$this->options->get('bin-dir').'/console');
+        $console = ProcessExecutor::escape($this->options->get('root-dir').'/'.$this->options->get('bin-dir').'/console');
         if ($this->io->isDecorated()) {
             $console .= ' --ansi';
         }
@@ -134,6 +134,6 @@ class ScriptExecutor
         $phpArgs = implode(' ', array_map([ProcessExecutor::class, 'escape'], $arguments));
         $scriptArgs = implode(' ', array_map([ProcessExecutor::class, 'escape'], $scriptArguments));
 
-        return ScriptExecutor . phpProcessExecutor::escape($php) . ($phpArgs ? ' ' . $phpArgs : '') .' '.$cmd.($scriptArgs ? ' '.$scriptArgs : '');
+        return ProcessExecutor::escape($php).($phpArgs ? ' '.$phpArgs : '').' '.$cmd.($scriptArgs ? ' '.$scriptArgs : '');
     }
 }

@@ -54,7 +54,7 @@ class DumpEnvCommand extends BaseCommand
             $_SERVER[$envKey] = $env;
         }
 
-        $path = $this->options->get('root-dir') . 'DumpEnvCommand.php/' .($runtime['dotenv_path'] ?? '.env');
+        $path = $this->options->get('root-dir').'/'.($runtime['dotenv_path'] ?? '.env');
 
         if (!$env || !$input->getOption('empty')) {
             $vars = $this->loadEnv($path, $env, $runtime);

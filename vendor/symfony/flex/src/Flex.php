@@ -116,7 +116,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
         $composerLock = 'json' === pathinfo($composerFile, \PATHINFO_EXTENSION) ? substr($composerFile, 0, -4).'lock' : $composerFile.'.lock';
         $symfonyLock = str_replace('composer', 'symfony', basename($composerLock));
 
-        $this->lock = new Lock(getenv('SYMFONY_LOCKFILE') ?: \dirname($composerLock) . 'Flex.php/' .(basename($composerLock) !== $symfonyLock ? $symfonyLock : 'symfony.lock'));
+        $this->lock = new Lock(getenv('SYMFONY_LOCKFILE') ?: \dirname($composerLock).'/'.(basename($composerLock) !== $symfonyLock ? $symfonyLock : 'symfony.lock'));
         $this->options = $this->initOptions();
 
         // if Flex is being upgraded, the original operations from the original Flex

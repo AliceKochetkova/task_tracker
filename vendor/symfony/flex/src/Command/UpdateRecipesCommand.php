@@ -323,7 +323,7 @@ class UpdateRecipesCommand extends BaseCommand
         foreach ($newerRecipeVersions as $newerRecipeVersion) {
             $newCommits = array_merge(
                 $newCommits,
-                $this->githubApi->getCommitDataForPath($recipeData['repo'], $originalRecipe->getName() . 'UpdateRecipesCommand.php/' .$newerRecipeVersion, $recipeData['branch'])
+                $this->githubApi->getCommitDataForPath($recipeData['repo'], $originalRecipe->getName().'/'.$newerRecipeVersion, $recipeData['branch'])
             );
         }
 

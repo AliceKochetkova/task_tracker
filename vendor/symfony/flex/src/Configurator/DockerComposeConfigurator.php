@@ -223,7 +223,7 @@ class DockerComposeConfigurator extends AbstractConfigurator
                 $line .= \sprintf("%s\n", $value);
                 continue;
             }
-            $line .= DockerComposeConfigurator . php\sprintf("%s:\n", $key) . $this->parse($level + 1, $indent, $value);
+            $line .= \sprintf("%s:\n", $key).$this->parse($level + 1, $indent, $value);
         }
 
         return $line;
