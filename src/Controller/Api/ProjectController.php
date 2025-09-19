@@ -32,7 +32,7 @@ class ProjectController extends AbstractController
     }
 
     #[Route('', methods: ['POST'])]
-    #[IsGranted('ROLE_MANAGER')]
+    //#[IsGranted('ROLE_MANAGER')]
     public function create(Request $request, EntityManagerInterface $em): JsonResponse
     {
         $data = json_decode($request->getContent(), true);

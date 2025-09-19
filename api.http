@@ -1,4 +1,35 @@
 ### GET request to example server
 GET http://localhost:80/api/users
 
-###
+### GET request to example server
+POST http://localhost:80/api/projects
+Content-Type: application/json
+
+{
+    "name": "Новый проект",
+    "description": "Описание проекта",
+    "status": "active"
+}
+
+### GET request to example server
+POST http://localhost:80/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Сверстать главную страницу",
+  "description": "Нужно сделать адаптивную верстку",
+  "status": "active",
+  "priority": "high",
+  "dueDate": "2025-10-01T18:00:00"
+}
+
+### GET request to example server
+PUT http://localhost:80/api/tasks/4
+Content-Type: application/json
+
+{
+    "title": "Сверстать главную страницу (обновлено)",
+    "status": "completed",
+    "priority": "medium",
+    "dueDate": "2025-10-05T12:00:00"
+}

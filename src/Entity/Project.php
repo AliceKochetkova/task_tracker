@@ -34,7 +34,7 @@ class Project
     private ProjectStatus $status = ProjectStatus::ACTIVE;
 
     #[ORM\ManyToOne(targetEntity: User::class)]
-    #[ORM\JoinColumn(name: "created_by", referencedColumnName: "id", nullable: false)]
+    #[ORM\JoinColumn(name: "created_by", referencedColumnName: "id", nullable: true)]
     private ?User $createdBy = null;
 
     #[ORM\Column]
